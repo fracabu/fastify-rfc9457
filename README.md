@@ -1,6 +1,7 @@
 # fastify-problem-details
 
 [![npm version](https://img.shields.io/npm/v/fastify-problem-details.svg)](https://www.npmjs.com/package/fastify-problem-details)
+[![CI](https://github.com/fracabu/fastify-problem-details/actions/workflows/ci.yml/badge.svg)](https://github.com/fracabu/fastify-problem-details/actions/workflows/ci.yml)
 [![license](https://img.shields.io/npm/l/fastify-problem-details.svg)](LICENSE)
 
 RFC 7807/9457 Problem Details for HTTP APIs - Standardized error responses for Fastify.
