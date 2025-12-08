@@ -1,0 +1,12 @@
+src/
+test/
+*.ts
+!*.d.ts
+tsconfig.json
+tsup.config.ts
+.github/
+.git/
+node_modules/
+coverage/
+*.md
+!README.md
