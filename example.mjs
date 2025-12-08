@@ -1,4 +1,5 @@
 import Fastify from 'fastify'
+// When installed from npm: import problemDetails from 'fastify-rfc9457'
 import problemDetails from './dist/index.js'
 
 const fastify = Fastify({ logger: true })

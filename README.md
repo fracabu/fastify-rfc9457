@@ -1,8 +1,8 @@
-# fastify-problem-details
+# fastify-rfc9457
 
-[![npm version](https://img.shields.io/npm/v/fastify-problem-details.svg)](https://www.npmjs.com/package/fastify-problem-details)
-[![CI](https://github.com/fracabu/fastify-problem-details/actions/workflows/ci.yml/badge.svg)](https://github.com/fracabu/fastify-problem-details/actions/workflows/ci.yml)
-[![license](https://img.shields.io/npm/l/fastify-problem-details.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/fastify-rfc9457.svg)](https://www.npmjs.com/package/fastify-rfc9457)
+[![CI](https://github.com/fracabu/fastify-rfc9457/actions/workflows/ci.yml/badge.svg)](https://github.com/fracabu/fastify-rfc9457/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/fastify-rfc9457.svg)](LICENSE)
 
 RFC 7807/9457 Problem Details for HTTP APIs - Standardized error responses for Fastify.
 
@@ -20,14 +20,14 @@ RFC 7807/9457 Problem Details for HTTP APIs - Standardized error responses for F
 ## Install
 
 ```bash
-npm install fastify-problem-details
+npm install fastify-rfc9457
 ```
 
 ## Quick Start
 
 ```typescript
 import Fastify from 'fastify'
-import problemDetails from 'fastify-problem-details'
+import problemDetails from 'fastify-rfc9457'
 
 const fastify = Fastify()
 
@@ -247,7 +247,7 @@ Request with `Accept: application/problem+xml`:
 Use the `ProblemDocument` class directly:
 
 ```typescript
-import { ProblemDocument } from 'fastify-problem-details'
+import { ProblemDocument } from 'fastify-rfc9457'
 
 const problem = new ProblemDocument({
   status: 404,
@@ -270,7 +270,7 @@ problem.toXML()   // XML string
 Full TypeScript support with module augmentation:
 
 ```typescript
-import type { ProblemDetails, ProblemOptions } from 'fastify-problem-details'
+import type { ProblemDetails, ProblemOptions } from 'fastify-rfc9457'
 
 // reply.notFound, reply.problem, etc. are fully typed
 fastify.get('/users/:id', async (request, reply) => {

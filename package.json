@@ -1,5 +1,5 @@
 {
-  "name": "fastify-problem-details",
+  "name": "fastify-rfc9457",
   "version": "1.0.0",
   "description": "RFC 7807/9457 Problem Details for HTTP APIs - Standardized error responses for Fastify",
   "type": "module",
@@ -45,12 +45,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fracabu/fastify-problem-details.git"
+    "url": "git+https://github.com/fracabu/fastify-rfc9457.git"
   },
   "bugs": {
-    "url": "https://github.com/fracabu/fastify-problem-details/issues"
+    "url": "https://github.com/fracabu/fastify-rfc9457/issues"
   },
-  "homepage": "https://github.com/fracabu/fastify-problem-details#readme",
+  "homepage": "https://github.com/fracabu/fastify-rfc9457#readme",
   "engines": {
     "node": ">=20.0.0"
   },

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Fastify plugin implementing RFC 7807/9457 Problem Details for HTTP APIs. It provides standardized error responses with the `application/problem+json` content type.
+**fastify-rfc9457** - A Fastify plugin implementing RFC 7807/9457 Problem Details for HTTP APIs. It provides standardized error responses with the `application/problem+json` content type.
 
 ## Build & Development Commands
 
