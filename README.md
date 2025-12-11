@@ -289,3 +289,4 @@ fastify.get('/users/:id', async (request, reply) => {
 ## License
 
 MIT
+
