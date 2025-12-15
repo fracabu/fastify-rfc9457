@@ -19,18 +19,10 @@
 
 ---
 
-## Overview
-
-<p align="center">
-  <img src="docs/assets/infographic-overview.svg" alt="Overview of fastify-rfc9457" width="800" />
-</p>
-
----
-
 ## How It Works
 
 <p align="center">
-  <img src="docs/assets/infographic-how-it-works.svg" alt="How fastify-rfc9457 works" width="800" />
+  <img src="docs/assets/rfc9457-hero.svg" alt="How fastify-rfc9457 works" width="800" />
 </p>
 
 ---
@@ -56,10 +48,6 @@ npm install fastify-rfc9457
 ```
 
 ### Quick Start
-
-<p align="center">
-  <img src="docs/assets/infographic-quickstart.svg" alt="Quickstart for fastify-rfc9457" width="800" />
-</p>
 
 ```typescript
 import Fastify from 'fastify'
@@ -92,23 +80,11 @@ app.get('/user/:id', async (request, reply) => {
 }
 ```
 
-### API Cheat Sheet
-
-<p align="center">
-  <img src="docs/assets/infographic-cheatsheet.svg" alt="fastify-rfc9457 API cheat sheet" width="800" />
-</p>
-
 ### Available Methods
 
-| Method | Status | Description |
-|--------|--------|-------------|
-| `reply.badRequest()` | 400 | Invalid request |
-| `reply.unauthorized()` | 401 | Authentication required |
-| `reply.forbidden()` | 403 | Access denied |
-| `reply.notFound()` | 404 | Resource not found |
-| `reply.conflict()` | 409 | Resource conflict |
-| `reply.unprocessableEntity()` | 422 | Validation error |
-| `reply.internalServerError()` | 500 | Server error |
+<p align="center">
+  <img src="docs/assets/rfc9457-methods.svg" alt="fastify-rfc9457 API methods" width="800" />
+</p>
 
 ---
 
@@ -164,18 +140,6 @@ app.get('/user/:id', async (request, reply) => {
   "instance": "/user/123"
 }
 ```
-
-### Metodi Disponibili
-
-| Metodo | Status | Descrizione |
-|--------|--------|-------------|
-| `reply.badRequest()` | 400 | Richiesta non valida |
-| `reply.unauthorized()` | 401 | Autenticazione richiesta |
-| `reply.forbidden()` | 403 | Accesso negato |
-| `reply.notFound()` | 404 | Risorsa non trovata |
-| `reply.conflict()` | 409 | Conflitto risorsa |
-| `reply.unprocessableEntity()` | 422 | Errore validazione |
-| `reply.internalServerError()` | 500 | Errore server |
 
 ---
 
