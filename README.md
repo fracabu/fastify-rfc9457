@@ -19,10 +19,10 @@
 
 ---
 
-## Overview
+## How It Works
 
 <p align="center">
-  <img src="docs/assets/infographic-overview.svg" alt="fastify-rfc9457 overview" width="100%" />
+  <img src="docs/assets/rfc9457-hero.svg" alt="How fastify-rfc9457 works" width="800" />
 </p>
 
 ---
