@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" width="100%" role="img" aria-labelledby="t d">
+  <title id="t">fastify-rfc9457 — Project at a glance</title>
+  <desc id="d">Hero summary, badges, and feature cards summarizing the plugin.</desc>
+  <style>
+    :root{
+      --bg:#ffffff; --panel:#f6f7f9; --text:#111827; --muted:#6b7280;
+      --stroke:#d1d5db; --accent:#2563eb; --accent2:#0ea5e9;
+      --shadow: rgba(0,0,0,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1020; --panel:#111827; --text:#e5e7eb; --muted:#9ca3af;
+        --stroke:#243244; --accent:#60a5fa; --accent2:#38bdf8;
+        --shadow: rgba(0,0,0,.35);
+      }
+    }
+    svg{background:var(--bg); font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+    .h1{font-size:30px; font-weight:750; fill:var(--text);}
+    .sub{font-size:15px; fill:var(--muted);}
+    .badge{fill:var(--panel); stroke:var(--stroke); stroke-width:1.5;}
+    .badgeText{font-size:13px; fill:var(--text); font-weight:650;}
+    .card{fill:var(--panel); stroke:var(--stroke); stroke-width:1.5;}
+    .cardT{font-size:15px; fill:var(--text); font-weight:700;}
+    .cardB{font-size:13px; fill:var(--muted);}
+    .kpi{fill:var(--bg); stroke:var(--stroke); stroke-width:1.5;}
+    .kpiT{font-size:13px; fill:var(--muted);}
+    .kpiV{font-size:18px; fill:var(--text); font-weight:750;}
+    .accent{stroke:var(--accent); stroke-width:3; stroke-linecap:round;}
+    .dot{fill:var(--accent);}
+  </style>
+
+  <!-- Header -->
+  <g transform="translate(56,54)">
+    <line x1="0" y1="10" x2="40" y2="10" class="accent"/>
+    <circle cx="52" cy="10" r="4" class="dot"/>
+    <text x="0" y="44" class="h1">fastify-rfc9457</text>
+    <text x="0" y="72" class="sub">RFC 7807/9457 Problem Details for HTTP APIs — standardized error responses for Fastify.</text>
+
+    <!-- Badges -->
+    <g transform="translate(0,96)">
+      <g transform="translate(0,0)">
+        <rect width="168" height="34" rx="14" class="badge"/>
+        <text x="16" y="22" class="badgeText">Node ≥ 20</text>
+      </g>
+      <g transform="translate(184,0)">
+        <rect width="178" height="34" rx="14" class="badge"/>
+        <text x="16" y="22" class="badgeText">Fastify ≥ 5</text>
+      </g>
+      <g transform="translate(378,0)">
+        <rect width="170" height="34" rx="14" class="badge"/>
+        <text x="16" y="22" class="badgeText">MIT License</text>
+      </g>
+      <g transform="translate(564,0)">
+        <rect width="236" height="34" rx="14" class="badge"/>
+        <text x="16" y="22" class="badgeText">Zero runtime deps</text>
+      </g>
+    </g>
+
+    <!-- Left KPIs -->
+    <g transform="translate(0,158)">
+      <rect width="440" height="122" rx="18" class="kpi"/>
+      <text x="20" y="38" class="kpiT">What you get</text>
+      <text x="20" y="70" class="kpiV">Typed helpers + RFC-compliant responses</text>
+      <text x="20" y="98" class="sub">Auto-convert Fastify errors, optional XML, safe production sanitization.</text>
+    </g>
+
+    <!-- Feature cards grid -->
+    <g transform="translate(480,158)">
+      <!-- row 1 -->
+      <g transform="translate(0,0)">
+        <rect width="264" height="120" rx="18" class="card"/>
+        <text x="18" y="38" class="cardT">RFC 9457 compliant</text>
+        <text x="18" y="64" class="cardB">Problem Details fields + validation errors support.</text>
+      </g>
+      <g transform="translate(284,0)">
+        <rect width="264" height="120" rx="18" class="card"/>
+        <text x="18" y="38" class="cardT">TypeScript first</text>
+        <text x="18" y="64" class="cardB">Module augmentation + typed reply shortcuts.</text>
+      </g>
+
+      <!-- row 2 -->
+      <g transform="translate(0,140)">
+        <rect width="264" height="120" rx="18" class="card"/>
+        <text x="18" y="38" class="cardT">Auto conversion</text>
+        <text x="18" y="64" class="cardB">Thrown errors become Problem Details responses.</text>
+      </g>
+      <g transform="translate(284,140)">
+        <rect width="264" height="120" rx="18" class="card"/>
+        <text x="18" y="38" class="cardT">Custom types + i18n</text>
+        <text x="18" y="64" class="cardB">Register problem types, multi-language titles.</text>
+      </g>
+
+      <!-- row 3 -->
+      <g transform="translate(0,280)">
+        <rect width="264" height="120" rx="18" class="card"/>
+        <text x="18" y="38" class="cardT">Production-safe</text>
+        <text x="18" y="64" class="cardB">Sanitize internal details; optional stack traces.</text>
+      </g>
+      <g transform="translate(284,280)">
+        <rect width="264" height="120" rx="18" class="card"/>
+        <text x="18" y="38" class="cardT">JSON + optional XML</text>
+        <text x="18" y="64" class="cardB">Content negotiation via Accept header.</text>
+      </g>
+    </g>
+
+    <!-- Footer note -->
+    <text x="0" y="566" class="sub">Typical output fields: type · title · status · detail · instance (+ extension fields)</text>
+  </g>
+</svg>
