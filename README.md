@@ -1,29 +1,50 @@
-# fastify-rfc9457
+<h1 align="center">fastify-rfc9457</h1>
+<h3 align="center">RFC 7807/9457 Problem Details for HTTP APIs</h3>
 
-[![npm version](https://img.shields.io/npm/v/fastify-rfc9457.svg)](https://www.npmjs.com/package/fastify-rfc9457)
-[![CI](https://github.com/fracabu/fastify-rfc9457/actions/workflows/ci.yml/badge.svg)](https://github.com/fracabu/fastify-rfc9457/actions/workflows/ci.yml)
-[![license](https://img.shields.io/npm/l/fastify-rfc9457.svg)](LICENSE)
+<p align="center">
+  <em>Standardized error responses for Fastify</em>
+</p>
 
-RFC 7807/9457 Problem Details for HTTP APIs - Standardized error responses for Fastify.
+<p align="center">
+  <a href="https://www.npmjs.com/package/fastify-rfc9457"><img src="https://img.shields.io/npm/v/fastify-rfc9457.svg" alt="npm version" /></a>
+  <img src="https://github.com/fracabu/fastify-rfc9457/actions/workflows/ci.yml/badge.svg" alt="CI" />
+  <img src="https://img.shields.io/badge/Fastify-5.x-000000?style=flat-square&logo=fastify" alt="Fastify" />
+  <img src="https://img.shields.io/badge/TypeScript-Ready-blue.svg" alt="TypeScript" />
+</p>
 
-## Features
+<p align="center">
+  :gb: <a href="#english">English</a> | :it: <a href="#italiano">Italiano</a>
+</p>
 
-- Full RFC 9457 (Problem Details) compliance
+---
+
+## Overview
+
+<!-- ![fastify-rfc9457 Overview](assets/rfc9457-overview.png) -->
+
+---
+
+<a name="english"></a>
+## :gb: English
+
+### Features
+
+- Full RFC 9457 compliance
 - TypeScript support with complete type definitions
-- Zero runtime dependencies (only `fastify-plugin`)
+- Zero runtime dependencies
 - Automatic error conversion from Fastify errors
 - Custom problem types registration
 - Multiple language support (EN, IT, ES, DE, FR)
 - Optional XML format support
 - Production-safe error sanitization
 
-## Install
+### Install
 
 ```bash
 npm install fastify-rfc9457
 ```
 
-## Quick Start
+### Quick Start
 
 ```typescript
 import Fastify from 'fastify'
@@ -37,18 +58,14 @@ await fastify.register(problemDetails, {
 
 fastify.get('/users/:id', async (request, reply) => {
   const user = await findUser(request.params.id)
-
   if (!user) {
-    return reply.notFound({
-      detail: `User ${request.params.id} not found`
-    })
+    return reply.notFound({ detail: `User ${request.params.id} not found` })
   }
-
   return user
 })
 ```
 
-Response:
+### Response Example
 
 ```json
 {
@@ -60,226 +77,73 @@ Response:
 }
 ```
 
-## Options
-
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `baseUrl` | `string` | - | Base URL for error type URIs |
-| `includeStackTrace` | `boolean` | `false` in prod | Include stack traces in responses |
-| `defaultLanguage` | `string` | `'en'` | Default language for titles |
-| `titleMap` | `Record<number, string>` | - | Custom status code titles |
-| `typeMap` | `Record<number, string>` | - | Custom type URI slugs |
-| `onProblem` | `function` | - | Hook called before sending |
-| `supportXml` | `boolean` | `false` | Enable XML format support |
-| `convertFastifyErrors` | `boolean` | `true` | Auto-convert Fastify errors |
-| `sanitizeProduction` | `boolean` | `true` | Hide internal details in prod |
-
-## Reply Methods
-
-### Shortcut methods
+### Reply Methods
 
 ```typescript
-reply.badRequest(options?)       // 400
-reply.unauthorized(options?)     // 401
-reply.paymentRequired(options?)  // 402
-reply.forbidden(options?)        // 403
-reply.notFound(options?)         // 404
-reply.methodNotAllowed(options?) // 405
-reply.notAcceptable(options?)    // 406
-reply.conflict(options?)         // 409
-reply.gone(options?)             // 410
-reply.unprocessableEntity(options?) // 422
-reply.tooManyRequests(options?)  // 429
-reply.internalServerError(options?) // 500
-reply.notImplemented(options?)   // 501
-reply.badGateway(options?)       // 502
-reply.serviceUnavailable(options?) // 503
-reply.gatewayTimeout(options?)   // 504
+reply.badRequest()       // 400
+reply.unauthorized()     // 401
+reply.forbidden()        // 403
+reply.notFound()         // 404
+reply.conflict()         // 409
+reply.internalServerError() // 500
+// ... and more
 ```
 
-### Generic method
+---
+
+<a name="italiano"></a>
+## :it: Italiano
+
+### Funzionalita
+
+- Piena conformita RFC 9457
+- Supporto TypeScript con definizioni complete
+- Zero dipendenze runtime
+- Conversione automatica errori Fastify
+- Registrazione tipi problema personalizzati
+- Supporto multilingue (EN, IT, ES, DE, FR)
+- Supporto opzionale formato XML
+- Sanificazione errori sicura per produzione
+
+### Installazione
+
+```bash
+npm install fastify-rfc9457
+```
+
+### Quick Start
 
 ```typescript
-reply.problem(statusCode, options?)
-```
+import Fastify from 'fastify'
+import problemDetails from 'fastify-rfc9457'
 
-### Options
+const fastify = Fastify()
 
-```typescript
-interface ProblemOptions {
-  type?: string      // Problem type URI or registered type name
-  title?: string     // Override default title
-  detail?: string    // Human-readable explanation
-  instance?: string  // URI of the specific occurrence
-  cause?: Error      // Original error (for logging)
-  [key: string]: unknown  // Custom extension fields
-}
-```
-
-## Extension Fields
-
-Add custom fields to provide more context:
-
-```typescript
-fastify.post('/transfer', async (request, reply) => {
-  const { amount } = request.body
-  const balance = await getBalance(request.user.id)
-
-  if (balance < amount) {
-    return reply.problem(403, {
-      type: 'insufficient-funds',
-      detail: `Your balance is €${balance}, but the transfer requires €${amount}`,
-      balance,
-      required: amount,
-      accounts: ['/account/123', '/account/456']
-    })
-  }
-})
-```
-
-Response:
-
-```json
-{
-  "type": "https://api.example.com/errors/insufficient-funds",
-  "title": "Forbidden",
-  "status": 403,
-  "detail": "Your balance is €30, but the transfer requires €50",
-  "instance": "/transfer",
-  "balance": 30,
-  "required": 50,
-  "accounts": ["/account/123", "/account/456"]
-}
-```
-
-## Custom Problem Types
-
-Register reusable problem types:
-
-```typescript
-fastify.registerProblemType('insufficient-funds', {
-  status: 403,
-  title: 'Insufficient Funds',
-  type: 'https://api.example.com/errors/insufficient-funds'
-})
-
-// Use it
-reply.problem(403, {
-  type: 'insufficient-funds',  // References registered type
-  detail: 'Not enough balance'
-})
-```
-
-## Error Handler Integration
-
-The plugin automatically converts thrown errors to Problem Details:
-
-```typescript
-fastify.get('/data', async () => {
-  throw new Error('Database connection failed')
-})
-// Returns 500 with Problem Details format
-
-// Errors with statusCode are preserved
-const error = new Error('Not found')
-error.statusCode = 404
-throw error
-// Returns 404 with Problem Details format
-```
-
-Validation errors include field details:
-
-```json
-{
-  "type": "https://api.example.com/errors/bad-request",
-  "title": "Bad Request",
-  "status": 400,
-  "detail": "body/email must match format \"email\"",
-  "instance": "/users",
-  "errors": [
-    {
-      "field": "/email",
-      "message": "must match format \"email\"",
-      "keyword": "format"
-    }
-  ]
-}
-```
-
-## onProblem Hook
-
-Log or monitor all problem responses:
-
-```typescript
 await fastify.register(problemDetails, {
-  onProblem: (problem, request) => {
-    request.log.error({ problem }, 'Problem Details response')
-    metrics.increment('api.errors', { status: problem.status })
-  }
-})
-```
-
-## XML Support
-
-Enable XML format for clients that prefer it:
-
-```typescript
-await fastify.register(problemDetails, {
-  supportXml: true
-})
-```
-
-Request with `Accept: application/problem+xml`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<problem xmlns="urn:ietf:rfc:9457">
-  <type>https://api.example.com/errors/not-found</type>
-  <title>Not Found</title>
-  <status>404</status>
-  <detail>User not found</detail>
-  <instance>/users/123</instance>
-</problem>
-```
-
-## ProblemDocument Class
-
-Use the `ProblemDocument` class directly:
-
-```typescript
-import { ProblemDocument } from 'fastify-rfc9457'
-
-const problem = new ProblemDocument({
-  status: 404,
-  title: 'Not Found',
-  detail: 'Resource not found',
-  extensions: { resourceId: 123 }
+  baseUrl: 'https://api.example.com/errors'
 })
 
-// Factory methods
-const notFound = ProblemDocument.notFound('User not found')
-const badRequest = ProblemDocument.badRequest('Invalid input', { field: 'email' })
-
-// Serialization
-problem.toJSON()  // RFC-compliant JSON object
-problem.toXML()   // XML string
-```
-
-## TypeScript
-
-Full TypeScript support with module augmentation:
-
-```typescript
-import type { ProblemDetails, ProblemOptions } from 'fastify-rfc9457'
-
-// reply.notFound, reply.problem, etc. are fully typed
 fastify.get('/users/:id', async (request, reply) => {
-  return reply.notFound({
-    detail: 'User not found',
-    userId: request.params.id  // Extension field
-  })
+  const user = await findUser(request.params.id)
+  if (!user) {
+    return reply.notFound({ detail: `Utente ${request.params.id} non trovato` })
+  }
+  return user
 })
 ```
+
+### Campi Estensione
+
+```typescript
+return reply.problem(403, {
+  type: 'insufficient-funds',
+  detail: 'Saldo insufficiente',
+  balance: 30,
+  required: 50
+})
+```
+
+---
 
 ## Requirements
 
@@ -290,3 +154,10 @@ fastify.get('/users/:id', async (request, reply) => {
 
 MIT
 
+---
+
+<p align="center">
+  <a href="https://github.com/fracabu">
+    <img src="https://img.shields.io/badge/Made_by-fracabu-8B5CF6?style=flat-square" alt="Made by fracabu" />
+  </a>
+</p>
