@@ -20,7 +20,14 @@
 
 ## Overview
 
-<!-- ![fastify-rfc9457 Overview](assets/rfc9457-overview.png) -->
+![Overview of fastify-rfc9457](docs/assets/infographic-overview.svg)
+
+![How fastify-rfc9457 works](docs/assets/infographic-how-it-works.svg)
+
+![Quickstart for fastify-rfc9457](docs/assets/infographic-quickstart.svg)
+
+![fastify-rfc9457 API cheat sheet](docs/assets/infographic-cheatsheet.svg)
+
 
 ---
 
