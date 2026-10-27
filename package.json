@@ -1,6 +1,6 @@
 {
   "name": "fastify-rfc9457",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "RFC 7807/9457 Problem Details for HTTP APIs - Standardized error responses for Fastify",
   "type": "module",
   "main": "./dist/index.js",
@@ -25,7 +25,6 @@
     "dev": "tsup --watch",
     "test": "node --import tsx --test test/errors.test.ts test/problem.test.ts test/serializer.test.ts test/plugin.test.ts",
     "test:coverage": "node --import tsx --test --experimental-test-coverage test/**/*.test.ts",
-    "lint": "eslint src test",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build && npm test"
   },
@@ -55,11 +54,11 @@
     "node": ">=20.0.0"
   },
   "dependencies": {
-    "fastify-plugin": "^5.0.0"
+    "fastify-plugin": "^6.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "fastify": "^5.0.0",
+    "fastify": "^5.12.7",
     "tsup": "^8.3.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
