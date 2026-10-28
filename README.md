@@ -14,6 +14,11 @@
 </p>
 
 <p align="center">
+  <a href="https://dev.to/fracabu/i-dug-up-a-plugin-id-abandoned-for-a-year-rfc-9457-in-fastify-1b8p"><img src="https://img.shields.io/badge/dev.to-Read_the_story-0A0A0A?style=flat-square&logo=devdotto" alt="Read on dev.to" /></a><br/>
+  <a href="https://dev.to/fracabu/i-dug-up-a-plugin-id-abandoned-for-a-year-rfc-9457-in-fastify-1b8p"><strong>I dug up a plugin I'd abandoned for a year</strong></a>: why this package is maintained again, with a hands-on tutorial
+</p>
+
+<p align="center">
   :gb: <a href="#english">English</a> | :it: <a href="#italiano">Italiano</a>
 </p>
 
